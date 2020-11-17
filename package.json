@@ -34,7 +34,9 @@
     "docker-build": "docker build -t maildev/maildev:$npm_package_version . && docker tag maildev/maildev:$npm_package_version maildev/maildev:latest",
     "docker-run": "docker run --rm -p 1080:1080 -p 1025:1025 maildev/maildev:$npm_package_version",
     "docker-push": "docker push maildev/maildev:$npm_package_version && docker push maildev/maildev:latest",
-    "update-readme": "node ./scripts/updateUsageREADME.js"
+    "update-readme": "node ./scripts/updateUsageREADME.js",
+    "start:mail": "MAILDEV_SMTP_PORT=$PORT node ./startMailServer.js",
+    "start:web": "MAILDEV_WEB_PORT=$PORT node ./startWebServer.js"
   },
   "main": "./index.js",
   "bin": {
